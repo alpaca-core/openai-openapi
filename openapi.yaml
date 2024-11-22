@@ -7810,18 +7810,19 @@ paths:
                             }
 
     /organization/users/{user_id}:
+        parameters:
+            - name: user_id
+              in: path
+              description: The ID of the user.
+              required: true
+              schema:
+                type: string
+      
         get:
             summary: Retrieves a user by their identifier.
             operationId: retrieve-user
             tags:
                 - Users
-            parameters:
-                - name: user_id
-                  in: path
-                  description: The ID of the user.
-                  required: true
-                  schema:
-                    type: string
             responses:
                 "200":
                     description: User retrieved successfully.
@@ -8035,18 +8036,19 @@ paths:
                             }
 
     /organization/projects/{project_id}:
+        parameters:
+            - name: project_id
+              in: path
+              description: The ID of the project.
+              required: true
+              schema:
+                type: string                  
+                
         get:
             summary: Retrieves a project.
             operationId: retrieve-project
             tags:
                 - Projects
-            parameters:
-                - name: project_id
-                  in: path
-                  description: The ID of the project.
-                  required: true
-                  schema:
-                    type: string                  
             responses:
                 "200":
                     description: Project retrieved successfully.
@@ -8294,24 +8296,25 @@ paths:
                             }
 
     /organization/projects/{project_id}/users/{user_id}:
+        parameters:
+            - name: project_id
+              in: path
+              description: The ID of the project.
+              required: true
+              schema:
+                type: string
+            - name: user_id                  
+              in: path
+              description: The ID of the user.
+              required: true
+              schema:
+                type: string
+      
         get:
             summary: Retrieves a user in the project.
             operationId: retrieve-project-user
             tags:
                 - Projects
-            parameters:
-                - name: project_id
-                  in: path
-                  description: The ID of the project.
-                  required: true
-                  schema:
-                    type: string
-                - name: user_id                  
-                  in: path
-                  description: The ID of the user.
-                  required: true
-                  schema:
-                    type: string
             responses:
                 "200":
                     description: Project user retrieved successfully.
